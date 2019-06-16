@@ -1,0 +1,136 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+.flexbox{
+	display: flex;
+}
+
+.container{
+
+	flex-direction: column;
+	height: 100vh;
+	position: relative;
+}
+
+/*------------header設定---------------*/
+.header{
+	position: fixed;
+	justify-content: space-between;
+	background-color: lightgray;
+	width: 100%;
+}
+
+h1{
+	margin-left: 1em;
+}
+
+label{
+	display: none;
+}
+nav{
+
+	margin:.5em;
+}
+
+nav a{
+	margin-right: 1.5em;
+	vertical-align: : middle;
+	text-decoration: none;
+}
+
+/*------------banner設定---------------*/
+.banner{
+	height: 20vh;
+	background-color: lightblue;
+	text-align: center;
+	justify-content: center;
+	margin-top: 2em;
+
+}
+.banner p{
+	font-size: 2em;
+	align-self:center; 
+}
+
+/*------------content設定---------------*/
+.content{
+	height: 75vh;
+	flex-direction: column;
+	text-align: center;
+}
+
+.content h2{
+	margin-top: 1em;
+
+}
+
+.boxContainer{
+	flex:1; 
+	flex-wrap: wrap;
+}
+
+
+.box{
+	flex:1 45%;
+	margin:.5em;
+	background-color: gray;
+	font-size: 1.5em;
+	padding: .5em;
+	height: 7em;
+
+}
+
+.btn{
+	align-self: center;
+	font-size: 1em;
+	padding: .3em;
+	background-color: lightblue;
+	margin-bottom: 1em;
+
+}
+
+/*------------media設定---------------*/
+
+/*螢幕大於等於1200px，content維持1200px*/
+@media (min-width: 1200px){
+
+	.content{
+		width: 1200px;
+		align-self: center;
+	}
+
+}
+
+/*螢幕小於等於800px，nav bar變成選單*/
+@media (max-width: 800px){
+	nav,nav a{
+		display: none;
+	}
+
+	.header{
+		width: 100%;
+	}
+
+	label{
+		display: inline-block;
+		font-size: 1.5em;
+		width: 2em;
+		padding: .2em;
+		background-color:rgba(0,132,0,0.15);
+		text-align: center;
+		order: 1;
+	}
+
+}
+
+/*螢幕小於等於500px，box變成單欄式*/
+@media (max-width: 500px){
+	.box{
+		flex:1 90%;
+	}
+
+}
