@@ -23,7 +23,7 @@
 			</nav>
 		</div>
 		
-		<div class="banner flexbox">
+		<div class="banner flexbox" id="click" onclick="bannerChange()">
 			<p>Welcome Message</p>
 		</div>
 		 
@@ -35,27 +35,32 @@
 				<div class="box">box3</div>
 				<div class="box">box4</div>
 			</div>
-			<button class="btn" id="callToAction">Call to action</button>
-			<div class="boxContainer2 flexbox">
-				<div class="box">box1</div>
-				<div class="box">box2</div>
-				<div class="box">box3</div>
-				<div class="box">box4</div>
+			<button class="btn" onclick="boxHide()">Call to action</button>
+			<div class="boxContainer flexbox" id="hidden">
+				<div class="box">box5</div>
+				<div class="box">box6</div>
+				<div class="box">box7</div>
+				<div class="box">box8</div>
 			</div>
 
 		</div>
 	
 	</div>
 
-	<!-- <script>
+	<script>
 		function bannerChange() {
+			document.getElementByID("click").innerHTML = "<p>Hello!!</p>";
+		}
 
-			document.getElementByClassName("banner").innerHTML = ""
-			if (x.innerHTML=='+')
-			{x.innerHTML='-'}
-			else
-			{x.innerHTML='+'}
+		function boxHide(){
+			var x = document.getElementById("hidden");
+			if(x.style.display === "flex"){
+				x.style.display = "none";
+			}else{
+				x.style.display = "flex";
 			}
-	</script> -->
+		}
+
+	</script>
 </body>
 </html>

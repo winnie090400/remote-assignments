@@ -10,7 +10,6 @@
 }
 
 .container{
-
 	flex-direction: column;
 	height: 100vh;
 	position: relative;
@@ -22,6 +21,7 @@
 	justify-content: space-between;
 	background-color: lightgray;
 	width: 100%;
+	
 }
 
 h1{
@@ -68,6 +68,7 @@ nav a{
 	height: 75vh;
 	flex-direction: column;
 	text-align: center;
+
 }
 
 .content h2{
@@ -77,11 +78,15 @@ nav a{
 
 
 
-.boxContainer,.boxContainer2{
+.boxContainer{
 	flex:1; 
 	flex-wrap: wrap;
 }
 
+#hidden{
+
+	display: none;
+}
 
 .box{
 	flex:1 45%;
@@ -118,8 +123,7 @@ nav a{
 @media (max-width: 800px){
 	nav a,nav{
 		display: none;
-		
-		
+
 	}
 	
 	
@@ -150,6 +154,7 @@ nav a{
 		height: 100vh;
 		width: 25%;
 		padding-left: 1.5em;
+		transition: all .5s;
 	}
 
 	
