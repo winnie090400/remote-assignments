@@ -23,8 +23,8 @@
 			</nav>
 		</div>
 		
-		<div class="banner flexbox" id="click" onclick="bannerChange()">
-			<p>Welcome Message</p>
+		<div class="banner flexbox">
+			<p class="msg">Welcome Message</p>
 		</div>
 		 
 		<div class="content flexbox">
@@ -48,9 +48,11 @@
 	</div>
 
 	<script>
-		function bannerChange() {
-			document.getElementByID("click").innerHTML = "<p>Hello!!</p>";
-		}
+		
+		const msg = document.querySelector('.msg');
+		msg.addEventListener('click', () => {
+		msg.textContent = "Have a Good Time!!";
+		})
 
 		function boxHide(){
 			var x = document.getElementById("hidden");
@@ -60,6 +62,7 @@
 				x.style.display = "flex";
 			}
 		}
+
 
 	</script>
 </body>
