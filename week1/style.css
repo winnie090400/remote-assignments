@@ -31,8 +31,8 @@ h1{
 label{
 	display: none;
 	position: absolute;
-	right: .5em;
-	top:.5em;
+	right: 0;
+	top: 0;
 }
 nav{
 	margin:.5em;
@@ -129,7 +129,7 @@ nav a{
 	
 	.header{
 		width: 100%;
-		height: 6vh;
+		height: 45px;
 
 	}
 
