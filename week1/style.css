@@ -147,13 +147,14 @@ nav a{
 	#burger:checked+nav a,#burger:checked+nav{
 		display: flex;
 		flex-direction: column;
-		margin-top: 2em;
 		flex:0;
-		background-color:rgba(255, 255, 255, 0.4);
+		background-color:white;
 		font-size: 1.3em;
 		height: 100vh;
-		width: 25%;
-		padding-left: 1.5em;
+		margin-top: 0;
+		margin-right: 0;
+		padding-right: 3em;
+		padding-left: .3em;
 	}
 
 	

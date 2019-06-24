@@ -2,10 +2,13 @@
 // Assignment 1: Function and Array
 
 function max(...numbers){
-  var args = Array.from(numbers);
-  var sortedArgs = args.sort();
-  var lastNumber = sortedArgs[sortedArgs.length-1];
-  console.log(lastNumber);
+  let max = numbers[0];
+  for( let i = 0; i < numbers.length; i ++ ){
+    if( max < numbers[i] ){
+      max = numbers[i];
+    }
+  }
+  console.log(max);
   
 }
 max(1, 2, 4, 5);
@@ -40,28 +43,29 @@ console.log(calculate(way2));
 
 // Assignment 3: Function, Array, and Object
 
-function avg(data){
+function avg(data){ 
   let sum = 0;
   let avg = 0;
-  for( var i = 0; i < arr.size; i += 1 ){
-    sum += arr.products[i].price;
+  for( var i = 0; i < data.size; i ++ ){
+    sum += data.products[i].price;
   }
-  avg = sum/arr.size;
-  return avg;
-}
-let avg = {
-  size:3,
-  products:[
-    {
-    name:"Product 1",
-    price:100 },
-    {
-    name:"Product 2",
-    price:700 },
-    {
-    name:"Product 3",
-    price:250 }
-    ]
-};
-
-console.log(avg(avg));
+  avg = sum/data.size;
+  console.log(avg);
+} 
+avg({  
+  size:3, 
+  products:[ 
+    { 
+      name:"Product 1", 
+      price:100 
+    }, 
+    { 
+      name:"Product 2", 
+      price:700 
+    }, 
+    { 
+      name:"Product 3", 
+      price:250 
+    } 
+  ] 
+});
