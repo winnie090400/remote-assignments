@@ -27,30 +27,41 @@ app.get('/', function(request, response) {
 	response.sendFile(path.join(__dirname + '/login.html'));
 });
 
-app.post('/home', function(request, response) {
+app.post('/signin', function(request, response) {
 	var email = request.body.email;
 	var password = request.body.password;
 
 	if (email && password) {
 		
-		connection.query('SELECT * FROM user WHERE email = ? OR password = ?', [email, password], function(error, results, fields) {
+		connection.query('SELECT * FROM user WHERE email = ? AND password = ?', [email, password], function(error, results, fields) {
 			
-			if (results.length > 0 && results[0].email == email && results[0].password == password) {
+			if (results.length > 0) {
 				
 				request.session.loggedin = true;
 				request.session.email = email;
 				request.session.password = password;
 				response.redirect('/member');
 			
-			} else if(results.length > 0 && results[0].email == email && results[0].password !== password){
-				
-				response.send('Wrong password!');
+			} else {
+				response.send('Wrong email or password!');					
+			}		
 			
-			} else if(results.length > 0 && results[0].email !== email && results[0].password == password){			
-				
-				response.send('Wrong email address!');
+			response.end();
+		});
+	} else {
+		response.end(request.session.loggedin);
+	}
+});
+
+app.post('/signup', function(request, response) {
+	var email = request.body.email;
+	var password = request.body.password;
+
+	if (email && password) {
+		
+		connection.query('SELECT * FROM user WHERE email = ?', [email, password], function(error, results, fields) {
 			
-			} else if(results.length == 0){
+			if (results.length == 0){
 				
 				var data = {email: email , password: password};
 				connection.query('INSERT INTO user SET ?', data, function(error, fields) {
@@ -58,6 +69,8 @@ app.post('/home', function(request, response) {
 				});
 			
 				response.send('User successfully created!')							
+			}else{
+				response.send('User was created, please change other email address!');
 			}		
 			
 			response.end();
